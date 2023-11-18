@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rubbels/static/css/main.ec653654.css",
+    "main.js": "/rubbels/static/js/main.2af68efc.js",
+    "index.html": "/rubbels/index.html",
+    "main.ec653654.css.map": "/rubbels/static/css/main.ec653654.css.map",
+    "main.2af68efc.js.map": "/rubbels/static/js/main.2af68efc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec653654.css",
+    "static/js/main.2af68efc.js"
+  ]
+}
