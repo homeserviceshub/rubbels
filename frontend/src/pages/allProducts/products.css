@@ -1,0 +1,241 @@
+.containerX {
+  padding: 90px 0 0 0;
+  background-color: white;
+}
+.nav {
+  height: 90px;
+}
+
+/* filter side navigation */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: 185px;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav.open {
+  width: 250px;
+}
+.main.mainopen {
+  margin-left: 250px !important;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  position: sticky;
+  top: 65px;
+  z-index: 2;
+  background-color: white;
+}
+.heading {
+  font-size: 24px;
+}
+.main {
+  transition: margin-left 0.5s;
+  padding: 16px;
+}
+.iconSpan {
+  width: 55px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+.simplebar-container {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.5s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+  max-height: 700px;
+  min-height: 425px;
+}
+
+.simplebar-container.show {
+  width: 270px !important; /* Adjust the height as needed */
+}
+/*  */
+.containerY {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  transition: max-width 0.5s ease;
+  gap: 30px;
+}
+
+.sidebar-open .container {
+  max-width: 1000px; /* Adjust the max-width when the sidebar is open */
+}
+
+.card {
+  width: calc(33.33% - 20px);
+  background-color: #fff;
+  margin: 20px 0 20px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  height: fit-content;
+  border: 0;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.cardData {
+  padding: 5px 10px;
+  line-height: 24px;
+}
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: all 0.5s ease-out;
+}
+.outerImgDiv {
+  overflow: hidden;
+  border-radius: 10px;
+}
+.card img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px);
+  }
+  .simplebar-container {
+    display: none;
+  }
+  .mobileFilter {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
+
+/*  */
+.accordion-item {
+  color: var(--bs-accordion-color);
+  background-color: var(--bs-accordion-bg);
+  border-bottom: 1px solid black;
+  border: none;
+}
+.accordion-button:not(.collapsed) {
+  color: unset;
+  background-color: unset;
+  box-shadow: unset;
+}
+
+.accordion-button:focus {
+  z-index: 1;
+  border-color: unset;
+  outline: 0;
+  box-shadow: unset;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-radius: unset;
+}
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-label::before {
+  content: "\2713";
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  text-align: center;
+  line-height: 20px;
+  font-size: 20px;
+}
+.form-check-label {
+  font-size: larger;
+}
+.form-check-input {
+  font-size: larger;
+}
+.form-check-input:checked {
+  background-color: #000000;
+  border-color: #000000;
+}
+.form-check-input:focus {
+  border-color: black;
+  outline: 0;
+  box-shadow: none;
+}
+.filterType {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.mobileFilter {
+  background-color: #fff;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1050;
+  overflow: auto;
+  display: none;
+}
+.filterNav {
+  display: flex;
+  margin: 1rem 1.25rem;
+  justify-content: space-between;
+}
+.moblileFilterHeading {
+  font-size: larger;
+  font-weight: 500;
+}
+.closeMobileFilter {
+  padding: 3px 10px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  cursor: pointer;
+}
+.closeMobileBtn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 1.25rem;
+  gap: 10px;
+}

@@ -1,0 +1,70 @@
+.containerZ {
+  max-width: 1695px;
+  margin: auto;
+}
+.AddedItem {
+  justify-content: center;
+  margin: 30px 0px;
+}
+.itemInner {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 30px;
+}
+.singleItem {
+  display: flex;
+  justify-content: space-between;
+}
+.itemInnerLeft {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.itemInnerRight {
+  padding-right: 50px;
+  display: flex;
+  gap: 15px;
+}
+.thumb {
+  width: 160px;
+  height: 170px;
+  border-radius: 10px;
+}
+.thumbimg {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+}
+.quantity {
+  display: flex;
+  border: 1px solid black;
+  width: fit-content;
+  border-radius: 20px;
+  padding: 3px;
+  justify-content: center;
+  align-items: center;
+}
+.change {
+  padding: 0 15px;
+  font-size: 1.5rem;
+}
+.totalQuantity {
+  padding: 0 30px;
+}
+.prize {
+  font-size: x-large;
+  line-height: 20px;
+  margin-left: 5rem;
+}
+.parah {
+  margin: 0 !important;
+}
+.favSpan {
+  font-size: 20px;
+}

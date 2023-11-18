@@ -1,0 +1,137 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: all 0.5s ease-out;
+}
+.swiper-slide img:hover {
+  transform: scale(1.03);
+}
+.title {
+  text-align: left;
+  color: grey;
+  font-weight: 600;
+  font-size: 1.3rem;
+  padding-top: 5px;
+  line-height: 26px;
+}
+.subtitle {
+  text-align: left;
+  color: grey;
+  line-height: 20px;
+}
+.imgDiv {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* for infinity card slider */
+
+.infinite-card-slider {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  /* overflow: hidden; */
+}
+
+.card1 {
+  position: absolute;
+  width: 980px;
+  height: 475px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3498db;
+  color: white;
+  font-size: 24px;
+  opacity: 1;
+  left: 0%;
+  top: 0%;
+  transition: all 0.6s ease 0s;
+  z-index: 3;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 25px 0px,
+    rgba(0, 0, 0, 0.4) 0px 0px 10px 0px;
+  cursor: unset;
+  border-radius: 10px;
+}
+.card2 {
+  position: absolute;
+  width: 980px;
+  height: 475px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3498db;
+  color: white;
+  font-size: 24px;
+  opacity: 1;
+  left: 7%;
+  top: 10%;
+  transition: all 0.6s ease 0s;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 25px 0px,
+    rgba(0, 0, 0, 0.4) 0px 0px 10px 0px;
+  cursor: w-resize;
+  border-radius: 10px;
+}
+.card3 {
+  position: absolute;
+  display: flex;
+  width: 980px;
+  height: 475px;
+  justify-content: center;
+  align-items: center;
+  background-color: #3498db;
+  color: white;
+  font-size: 24px;
+  opacity: 1;
+  left: 14%;
+  top: 20%;
+  transition: all 0.6s ease 0s;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 25px 0px,
+    rgba(0, 0, 0, 0.4) 0px 0px 10px 0px;
+  cursor: w-resize;
+  border-radius: 10px;
+}
+.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+.next-button {
+  position: absolute;
+  bottom: -365px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  position: absolute;
+}

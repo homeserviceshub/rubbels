@@ -1,0 +1,48 @@
+.SearchDiv {
+  position: relative;
+}
+.customSearch {
+  width: 100%;
+  border: 1px solid black;
+  padding: 8px;
+  border-radius: 6px;
+}
+.searchIcon {
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+.SearchProducts {
+  max-height: 600px;
+  overflow: auto;
+}
+.HeadingProducts {
+  border-bottom: 1px solid black;
+  padding-top: 10px;
+  font-size: large;
+  font-weight: 700;
+}
+.searchItem {
+  margin: 14px 0px;
+  display: flex;
+  gap: 15px;
+}
+.searchImgDiv {
+  width: 90px;
+  height: 90px;
+}
+.searchImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.searchName {
+  font-size: large;
+  font-weight: 700;
+  line-height: 20px;
+}
+.searchPrice {
+  font-weight: 300;
+}

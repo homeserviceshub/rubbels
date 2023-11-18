@@ -1,0 +1,122 @@
+.allPhotos {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  position: sticky;
+  top: 50px;
+  max-height: 600px;
+  min-height: 455px;
+}
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0px 20px;
+}
+.thumbnail {
+  position: relative;
+  height: 60px;
+  width: 60px;
+}
+.hovered {
+  opacity: 0.5;
+}
+.allImages {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.mainImgDiv {
+  width: 590px;
+  max-width: 590px;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+.hideImg {
+  opacity: 0;
+  z-index: -1;
+}
+.showImg {
+  opacity: 1;
+  z-index: 0;
+}
+.rightRail {
+  margin-top: 40px;
+  padding-left: 24px;
+}
+.bold {
+  font-weight: 700;
+}
+.size {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  font-weight: 500;
+  border: 1px solid #bfbfbf;
+  color: #bfbfbf;
+  cursor: default;
+}
+.size:hover,
+.selectOption:hover {
+  border: 1px solid black;
+}
+.selectedSize {
+  color: black !important;
+  border: 1px solid black !important;
+  background-color: #f0f0f0 !important;
+}
+.selectOption {
+  border-radius: 5px;
+  padding: 3px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  font-weight: 500;
+  border: 1px solid #bfbfbf;
+  color: #bfbfbf;
+  cursor: default;
+}
+.allsize {
+  display: flex;
+  gap: 25px;
+}
+.productNameDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.favSpan {
+  font-size: 24px;
+}
+.newcustom {
+  height: 50px;
+  font-size: 20px;
+}
+
+.productBtnDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.customeaccordion1 {
+  border-top: 1px solid black !important;
+}
+.customeaccordion {
+  border-bottom: 1px solid black !important;
+  border-top: 1px solid black !important;
+}
+.accordion-item:last-of-type,
+.accordion-item:first-of-type {
+  border-radius: unset;
+}
