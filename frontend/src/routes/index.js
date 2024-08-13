@@ -58,7 +58,9 @@ export default function AppRoutes() {
           <Route path="/thankyou/:id" element={<Thankyou />} />
           <Route
             path="/favourites"
-            element={id.length > 0 ? <Favourites /> : <Navigate to="/signin" />}
+            element={
+              id?.length > 0 ? <Favourites /> : <Navigate to="/signin" />
+            }
           />
         </Route>
       </Routes>
