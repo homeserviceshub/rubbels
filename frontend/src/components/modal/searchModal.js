@@ -1,22 +1,49 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { Modal } from "react-bootstrap";
+import axios from "axios";
+import { useDispatch } from "react-redux";
 import { closeSearchModal } from "../../redux/actions/searchModal";
-import { Button, Modal } from "react-bootstrap";
 import CustomButton from "../customBtn";
 import { FaSearch } from "react-icons/fa";
 import "./modal.css";
-import { useState } from "react";
-import { Form } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function SearchModal({ isSearchModalOpen }) {
-  const [searching, setSearching] = useState();
+  const [searching, setSearching] = useState("");
+  const [allProducts, setAllProducts] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/")
+      .then((res) => {
+        const sortedProducts = res?.data.data.sort((a, b) => {
+          return Date.parse(b.addingdate) - Date.parse(a.addingdate); // Sort by recent time added
+        });
+        setAllProducts(sortedProducts);
+        setSearchResults(sortedProducts.slice(0, 5)); //initial product data
+        setAllProducts(res?.data.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const handleClose = () => {
     dispatch(closeSearchModal());
   };
-  const showSearching = () => {
-    console.log(searching);
-  };
+
+  useEffect(() => {
+    const timeOutId = setTimeout(() => {
+      const filteredResults = allProducts.filter((product) =>
+        product.name.toLowerCase().includes(searching.toLowerCase())
+      );
+      setSearchResults(
+        searching === "" ? allProducts.slice(0, 5) : filteredResults
+      );
+    }, 300);
+    return () => clearTimeout(timeOutId);
+  }, [searching]);
 
   return (
     <>
@@ -25,7 +52,13 @@ function SearchModal({ isSearchModalOpen }) {
           <Modal.Title>Search</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form id="searching" onSubmit={showSearching}>
+          <form
+            id="searching"
+            // onSubmit={(e) => {
+            //   e.preventDefault();
+            //   handleSearch();
+            // }}
+          >
             <div className="SearchDiv">
               <input
                 className="customSearch"
@@ -36,25 +69,49 @@ function SearchModal({ isSearchModalOpen }) {
                   setSearching(e.target.value);
                 }}
               />
-              <FaSearch
-                className="searchIcon"
-                type="submit"
-                onClick={showSearching}
-              />
+              <FaSearch className="searchIcon" type="submit" />
             </div>
+            {/* Display search results */}
             <div className="SearchProducts">
               <div className="HeadingProducts">Products</div>
-              {/* {items.map((item,index)=>{return ()})} */}
-              <div className="searchItem">
-                <div className="searchImgDiv">
-                  <img src="./photos/photo1.jpg" className="searchImg" />
+              {searchResults.map((product, index) => (
+                <div
+                  key={index}
+                  className="searchItem"
+                  onClick={() => {
+                    navigate(`/tshirt/${product._id}`);
+                    dispatch(closeSearchModal());
+                  }}
+                >
+                  <div className="searchImgDiv">
+                    <img
+                      src={process.env.PUBLIC_URL + "/photos/photo1.jpg"}
+                      className="searchImg"
+                      alt={product.name}
+                    />
+                  </div>
+                  <div className="">
+                    <div className="searchName">{product.name}</div>
+                    <div className="searchPrice">${product.price}</div>
+                    <div className="searchPrice">
+                      {product.availability === "available"
+                        ? "Available"
+                        : "Not Available"}
+                    </div>
+                  </div>
                 </div>
-                <div className="">
-                  <div className="searchName">T-Shirt name</div>
-                  <div className="searchPrice"> Price </div>
-                  <div className="searchPrice"> Available </div>
+              ))}
+              {searching === "" && (
+                <div
+                  className="seeMore mb-3"
+                  onClick={() => {
+                    navigate("./tshirts");
+                    dispatch(closeSearchModal());
+                  }}
+                >
+                  See All
                 </div>
-              </div>
+              )}
               <hr />
             </div>
           </form>
@@ -65,12 +122,6 @@ function SearchModal({ isSearchModalOpen }) {
             width={"auto"}
             height={"auto"}
             onClick={handleClose}
-          />
-          <CustomButton
-            text={"Search"}
-            width={"auto"}
-            height={"auto"}
-            onClick={showSearching}
           />
         </Modal.Footer>
       </Modal>

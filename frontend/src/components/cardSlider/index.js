@@ -5,6 +5,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { SelectedProduct } from "../../redux/actions/selectedProduct";
+import { NavLink } from "react-router-dom";
 
 export default function MultipleCardsComponent({ products }) {
   const [viewType, setViewType] = useState(""); // State to store the view type
@@ -13,7 +14,13 @@ export default function MultipleCardsComponent({ products }) {
   const gotoTshirt = (item) => {
     dispatch(SelectedProduct(item));
     localStorage.setItem("selectedproduct", JSON.stringify(item));
-    navigate("/tshirts/tshirt");
+  };
+  const capitalizeWords = (str) => {
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   useEffect(() => {
@@ -55,14 +62,20 @@ export default function MultipleCardsComponent({ products }) {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
+        {/* {console.log()} */}
         {products &&
           products.data.map((item, index) => (
             <SwiperSlide key={index} onClick={() => gotoTshirt(item)}>
-              <div className="imgDiv">
-                <img src={"./photos/photo1.jpg"} alt="T-shirt 1" />
-              </div>
-              <div className="title">{item.name}</div>
-              <div className="subtitle">{item.price}</div>
+              <NavLink to={`/tshirt/${item._id}`}>
+                <div className="imgDiv">
+                  <img
+                    src={process.env.PUBLIC_URL + "/photos/photo1.jpg"}
+                    alt="T-shirt 1"
+                  />
+                </div>
+                <div className="title">{capitalizeWords(item.name)}</div>
+                <div className="subtitle">${item.price}</div>
+              </NavLink>
             </SwiperSlide>
           ))}
       </Swiper>

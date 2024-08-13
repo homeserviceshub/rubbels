@@ -29,13 +29,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [scrollPosition, setScrollPosition] = useState(0);
+  const Islogin = localStorage.getItem("auth");
   const showSmallCart = useSelector((state) => {
     return state.addToBagReducer;
   });
   const isSearchModalOpen = useSelector(
     (state) => state.searchModalReducer.isModalOpen
   );
-
   const handleSearchClick = () => {
     dispatch(openSearchModal());
   };
@@ -63,17 +63,44 @@ const Navbar = () => {
   };
 
   const GotoSignin = () => {
-    navigate("/signin");
+    if (!Islogin) {
+      navigate("/signin");
+    } else {
+      navigate(`${Islogin}/profile`);
+    }
+    setDropdown(false);
   };
   const gotoFav = () => {
     navigate("/favourites");
+    setDropdown(false);
   };
 
   const GotoProfile = () => {
     navigate("/user/profile");
+    setDropdown(false);
   };
   const gotoCart = () => {
     navigate("/mycart");
+    setDropdown(false);
+  };
+  const GotoPage = (item, isSubMenu) => {
+    setDropdown(false);
+
+    if (!isSubMenu) {
+      if (item.title === "New Drop") {
+        console.log("apply newest filter");
+        localStorage.setItem("filters", "NEWEST");
+      } else if (item.title === "Shop") {
+        console.log("All Product Filter");
+        localStorage.setItem("filters", "no filter");
+      }
+      navigate(item.url);
+    } else {
+      // Handle sub-menu item click
+      console.log("subitem: ", item);
+      localStorage.setItem("filters", item.toLowerCase());
+      navigate("/tshirts");
+    }
   };
 
   // const handleActiveRoute = (item) => {
@@ -121,7 +148,12 @@ const Navbar = () => {
   return (
     <div className="nav-out">
       <nav className="navbar" style={navbarStyle}>
-        <div className="navbar-logo">
+        <div
+          className="navbar-logo"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <div
             className="logo"
             onClick={() => {
@@ -144,18 +176,29 @@ const Navbar = () => {
           <li className="item3" onClick={GotoSignin}>
             <FaRegUser /> Sign In / Register
           </li>
+          <li className="item4" onClick={gotoFav}>
+            Favourites
+          </li>
           {menuItems.map((item, index) => (
             <li
               key={index}
               className="item"
-              onMouseEnter={() => handleMouseEnter(item)} // Add mouse enter event
-              onMouseLeave={handleMouseLeave} // Add mouse leave event
+              onMouseEnter={() => handleMouseEnter(item)}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => GotoPage(item, false)} // Pass false for main menu item
             >
               {item.title}
               {item.submenu && activeSubmenu === item.title && (
                 <ul className="submenu">
                   {item.submenu.map((subitem, subindex) => (
-                    <li key={subindex}>
+                    <li
+                      key={subindex}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Stop event propagation to parent
+                        setActiveSubmenu(null);
+                        GotoPage(subitem, true); // Pass true for sub-menu item
+                      }}
+                    >
                       <Link className="options" to="/tshirts">
                         {subitem}
                       </Link>
@@ -187,7 +230,10 @@ const Navbar = () => {
           )}
         </ul>
       </nav>
-      {showSmallCart === true && <SmallCart />}
+
+      {showSmallCart.showSmallCart === true && (
+        <SmallCart productData={showSmallCart.productData} />
+      )}
 
       {<SearchModal isSearchModalOpen={isSearchModalOpen} />}
     </div>

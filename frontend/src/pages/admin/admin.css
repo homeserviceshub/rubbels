@@ -1,0 +1,55 @@
+.CrudDiv {
+  gap: 20px;
+}
+.adminProductMedia {
+  width: 90px;
+  height: 90px;
+  border-radius: 6px;
+}
+.adminAllMedia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.deleteMedia {
+  position: absolute;
+  right: -6px;
+  top: -8px;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 12px;
+  padding: 3px;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+}
+.allsize {
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.singlesize {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 7px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+.sizeinput {
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  width: 60px;
+}
+.checkdiv {
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.adminProduct {
+  border: 1px solid rgb(184, 184, 184);
+  border-radius: 6px;
+}
+.hover:hover {
+  background-color: rgba(29, 28, 28, 0.342);
+  border-radius: 6px;
+}

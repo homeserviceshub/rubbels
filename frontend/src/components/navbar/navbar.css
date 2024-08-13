@@ -81,7 +81,8 @@
   position: relative;
   padding: 0 1rem;
 }
-.item3 {
+.item3,
+.item4 {
   display: none;
 }
 .item:hover,
@@ -131,7 +132,7 @@
   padding: 0;
   margin-top: 0;
   display: none;
-  background: #ffffff7d;
+  background: white;
   border-radius: 10px;
   width: 300px;
   left: -145%;
@@ -154,7 +155,7 @@
 
 /* Submenu item hover state */
 .submenu li:hover {
-  background-color: white;
+  background-color: rgb(211, 211, 211);
 }
 
 /* Show the submenu when the parent item is hovered */
@@ -167,11 +168,15 @@
 @media (max-width: 960px) {
   .navbar {
     position: relative;
+    justify-content: flex-start !important;
   }
   .item {
     padding: 0 0.5rem;
     width: 100%;
     text-align: start;
+  }
+  .item2 {
+    display: none;
   }
   .item3 {
     padding: 0px 0.5rem;
@@ -182,8 +187,12 @@
     width: 100%;
     border-bottom: 0.5px solid #d1d1d1;
   }
-  .item2 {
-    display: none;
+  .item4 {
+    padding: 0px 0.5rem;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 
   .nav-menu {
@@ -234,6 +243,7 @@
     left: 0;
     margin-left: 0px;
     transform: translate(10%, 50%);
+    z-index: 9999;
   }
 
   .menu-icon {

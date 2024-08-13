@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
+import "react-phone-input-2/lib/style.css";
 import AppRoutes from "./routes";
 import { Provider } from "react-redux";
 import MyStore from "./redux/store";

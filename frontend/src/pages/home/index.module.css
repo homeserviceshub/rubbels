@@ -4,7 +4,6 @@
   background-size: cover;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
 }
 .featuredSection {
   padding: 0px 20px;
@@ -12,22 +11,37 @@
 .sectionHeading {
   font-size: 2rem;
   padding: 20px;
+  padding-left: 0px;
   color: grey;
   font-weight: 600;
 }
 .latestSection {
   max-width: 2075px;
-  padding: 0px;
+  padding: 0px 20px;
 }
 .cardz {
   margin: 0;
 }
+.twocardz {
+  padding: 0;
+  padding-right: 10px;
+}
+.twocardz2 {
+  padding: 0;
+  padding-left: 10px;
+}
 
-@media (max-width: 769px) {
+@media (max-width: 767px) {
   .sectionHeading {
-    padding: 20px 0 10px 0;
+    padding: 20px 0 10px 10px;
   }
   .cardz {
     gap: 20px;
+  }
+  .featuredSection,
+  .latestSection,
+  .twocardz,
+  .twocardz2 {
+    padding: 0px;
   }
 }

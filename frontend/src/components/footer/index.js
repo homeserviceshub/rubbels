@@ -49,14 +49,8 @@ const Footer = () => {
               <Link to={"/aboutus"} className={styles.link}>
                 About Us
               </Link>
-              <Link to={"/contactus"} className={styles.link}>
-                Contact Us
-              </Link>
               <Link to={"/faq"} className={styles.link}>
                 FAQ's
-              </Link>
-              <Link to={"/careers"} className={styles.link}>
-                Careers
               </Link>
               <Link to={"/aboutus"} className={styles.link}>
                 Help

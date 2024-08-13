@@ -1,4 +1,4 @@
-import styles from "./ResetPassword.module.css";
+import styles from "./auth.module.css";
 import React from "react";
 import { Form, Container, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -34,10 +34,10 @@ function ResetPasword() {
                     an email with instruction to reset your password
                   </div>
                 </Col>
-                <Col md={12}>
+                <Col md={12} className="mb-3">
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control "
                     placeholder="Email Address"
                   />
                 </Col>

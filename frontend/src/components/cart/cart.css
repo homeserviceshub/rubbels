@@ -33,4 +33,16 @@
   position: absolute;
   right: 12px;
   top: 0.5rem;
+  cursor: pointer;
+}
+.nosmalltext {
+  font-size: medium;
+  width: auto;
+  height: auto;
+}
+@media (max-width: 960px) {
+  .cartContainer {
+    right: 15px;
+    width: 290px;
+  }
 }

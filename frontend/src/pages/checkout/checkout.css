@@ -1,0 +1,29 @@
+.accountHolder {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.login {
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.login:hover {
+  text-decoration: underline;
+}
+.formField:focus,
+.formField:focus-visible {
+  outline: 0;
+  box-shadow: none;
+  border: 1px solid black;
+}
+.payment {
+  border: 1px solid #dee2e6;
+  padding: 13px;
+  border-radius: 6px;
+}
+.customCheck {
+  border-radius: 10px;
+  padding: 10px;
+  background: #ededed;
+}

@@ -9,9 +9,10 @@ const productsSchema = mongoose.Schema({
   artplacement: Object,
   discription: String,
   details: Array,
-  photos: Array,
+  mediafiles: Array,
   availability: String,
   addingdate: Date,
+  gender: String,
 });
 
 module.exports = mongoose.model("products", productsSchema); //products is the collections name

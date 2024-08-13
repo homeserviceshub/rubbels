@@ -28,6 +28,7 @@
   margin: 14px 0px;
   display: flex;
   gap: 15px;
+  cursor: pointer;
 }
 .searchImgDiv {
   width: 90px;
@@ -45,4 +46,13 @@
 }
 .searchPrice {
   font-weight: 300;
+}
+.seeMore {
+  text-align: center;
+  font-size: large;
+  color: rgb(142 142 142);
+  cursor: pointer;
+}
+.seeMore:hover {
+  color: black;
 }

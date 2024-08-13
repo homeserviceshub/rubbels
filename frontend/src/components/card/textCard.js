@@ -13,15 +13,17 @@ export default function TextCard() {
   };
   return (
     <div className="main">
-      <img src="./photos/photo1.jpg" alt="cardImages" className="background" />
+      <img
+        src={process.env.PUBLIC_URL + "/photos/photo1.jpg"}
+        alt="cardImages"
+        className="background"
+      />
       <div className="overlay">
         <h1 className="cardTitle">Monkey D. Luffy T-Shirt</h1>
         <h4 className="cardSubtitle">Collection from Anime</h4>
         <p className="information">
           The front of the T-shirt features a striking and detailed illustration
-          of Monkey D. Luffy in his classic straw hat. Luffy's signature wide
-          grin and his mysterious scar under his left eye are beautifully
-          captured.
+          of Monkey D. Luffy in his classic straw hat.
         </p>
         <div className="buttonContainer">
           <CustomButton

@@ -1,16 +1,15 @@
 .containerX {
-  /* background: url(/public/photos/homeimage4.avif); */
   height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
   overflow: hidden;
 }
-
 .containerY {
   background: #ffffff;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   position: relative;
+}
+.customForm:focus {
+  border: 1px solid #000000;
 }
 
 .floatingEye {
@@ -21,15 +20,9 @@
   color: #979797;
   cursor: pointer;
 }
-
 .formDesign input {
   padding: 12px;
 }
-
-.formDesign input:focus {
-  box-shadow: none;
-}
-
 .formDesign h2 {
   font-family: var(--Poppins);
   font-style: normal;
@@ -39,42 +32,39 @@
   color: #000000;
   margin-top: 20px;
 }
-
+.formDesign input:focus {
+  box-shadow: none;
+}
 .formDesign .signInLink {
-  /* background: #932093; */
   width: 100%;
+  transition: 0.5s;
   background: linear-gradient(
-    180deg,
-    rgb(67 204 147 / 50%) 0%,
-    var(--color-primary) 100%
-  );
+      90deg,
+      var(--c1, rgba(255, 255, 255, 1)),
+      var(--c2, rgba(255, 255, 255, 1)) 100%,
+      var(--c1, #f6d365)
+    )
+    var(--x, 0) / 1000%;
   border-radius: 5px;
   padding: 12px;
-  color: white !important;
+  color: black;
   font-size: 20px;
   border: none;
   margin-bottom: 15px;
   display: block;
+  cursor: pointer;
+  padding-left: 5px;
   position: relative;
-  /* transition: all .4s ease-out; */
+  --c1: rgba(235, 235, 235, 1);
+  --c2: black;
 }
-
 .formDesign .signInLink:hover {
-  /* background: #117C42; */
-  background: linear-gradient(180deg, #1eb262 0%, #09592e 100%);
+  --x: 100%;
+  color: white !important;
 }
-
 .formDesign .signInLink:focus {
   box-shadow: none !important;
 }
-
-.signInLoader {
-  font-size: 15px;
-  width: 24px !important;
-  height: 24px !important;
-  text-align: center;
-}
-
 .formDesign a {
   font-family: var(--Inter);
   font-style: normal;
@@ -84,9 +74,22 @@
   color: grey;
   text-decoration: none;
 }
-
 .formDesign a:hover {
   color: rgb(0, 0, 0) !important;
+}
+.formText {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 28px;
+  color: #a9a9a9;
+  padding-top: 19px;
+  padding-bottom: 16px;
+}
+.lineDiv {
+  border: 1px solid #d8d8d8;
+  margin: 20px 0px;
 }
 .closeBtn {
   color: white;
@@ -105,11 +108,21 @@
   opacity: 1 !important;
   background-color: rgb(223, 0, 0);
 }
-.signinlink {
-  cursor: pointer;
-  padding-left: 5px;
+.signInLoader {
+  font-size: 15px;
+  width: 24px !important;
+  height: 24px !important;
+  text-align: center;
 }
-.signinlink:hover {
-  color: rgb(19 153 255);
-  text-decoration: underline;
+@media (max-width: 768px) {
+  .containerY {
+    padding: 1rem !important;
+  }
+}
+.signinOption {
+  cursor: pointer;
+}
+.error,
+.error:focus {
+  border: 1px solid red;
 }

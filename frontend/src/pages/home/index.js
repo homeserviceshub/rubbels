@@ -5,12 +5,18 @@ import MutipleSlidesPerView from "../../components/cardSlider";
 import TextCard from "../../components/card/textCard";
 import SideTextCard from "../../components/card/sideTextCard";
 import axios from "axios";
+import MySpinner from "../../components/spinner/spinner";
 
 function Home() {
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get("http://localhost:8000/")
-      .then((res) => setAllProducts(res.data))
+      .then((res) => {
+        setAllProducts(res.data);
+        setIsLoading(false);
+      })
       .catch((err) => console.log(err));
     window.scrollTo(0, 0);
   }, []);
@@ -116,31 +122,41 @@ function Home() {
   ];
   return (
     <>
-      <div className={styles.heroSection}>
-        <img className={styles.img} src="./photos/photo2.jpg" alt="new" />
-      </div>
-      <div className={styles.featuredSection}>
-        <div className={styles.sectionHeading}>Featured Items</div>
-        <MutipleSlidesPerView products={allProducts} />
-      </div>
+      {isLoading ? (
+        <MySpinner />
+      ) : (
+        <>
+          <div className={styles.heroSection}>
+            <img
+              className={styles.img}
+              src={process.env.PUBLIC_URL + "/photos/photo2.jpg"}
+              alt="new"
+            />
+          </div>
+          <div className={styles.featuredSection}>
+            <div className={styles.sectionHeading}>Featured Items</div>
+            <MutipleSlidesPerView products={allProducts} />
+          </div>
 
-      <Container className={styles.latestSection}>
-        <div className={styles.sectionHeading}>The Latest</div>
-        <Row className={styles.cardz}>
-          <Col md={6} className={styles.featuredSectionA}>
-            <TextCard />
-          </Col>
-          <Col md={6} className={styles.featuredSectionB}>
-            <TextCard />
-          </Col>
-        </Row>
-      </Container>
+          <Container className={styles.latestSection}>
+            <div className={styles.sectionHeading}>The Latest</div>
+            <Row className={styles.cardz}>
+              <Col md={6} className={styles.twocardz}>
+                <TextCard />
+              </Col>
+              <Col md={6} className={styles.twocardz2}>
+                <TextCard />
+              </Col>
+            </Row>
+          </Container>
 
-      <div className={styles.featuredSection}>
-        <div className={styles.sectionHeading}>Rubbal's Pick for You</div>
-        <MutipleSlidesPerView products={allProducts} />
-      </div>
-      <SideTextCard />
+          <div className={styles.featuredSection}>
+            <div className={styles.sectionHeading}>Rubbal's Pick for You</div>
+            <MutipleSlidesPerView products={allProducts} />
+          </div>
+          <SideTextCard />
+        </>
+      )}
     </>
   );
 }

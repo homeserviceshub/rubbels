@@ -12,7 +12,11 @@ export default function SideTextCard() {
   return (
     <Row className="main2">
       <Col className="p-0" lg={6}>
-        <img src="./photos/photo1.jpg" alt="NoImage" className="sideImg" />
+        <img
+          src={process.env.PUBLIC_URL + "/photos/photo1.jpg"}
+          alt="NoImage"
+          className="sideImg"
+        />
       </Col>
 
       <Col lg={6} className="parent-container">

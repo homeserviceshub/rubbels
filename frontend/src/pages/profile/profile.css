@@ -1,0 +1,25 @@
+.profilePhoto {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+}
+.pimg {
+  object-fit: cover;
+  object-position: center;
+}
+.profiletitle {
+  text-align: left;
+  color: grey;
+  font-weight: 600;
+  font-size: 2rem;
+  padding-top: 0px;
+  line-height: 26px;
+}
+
+@media (max-width: 769px) {
+  .profiletitle {
+    font-size: 1.3rem;
+  }
+}

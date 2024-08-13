@@ -17,12 +17,13 @@ async function main() {
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
+app.use("/", express.static("upload"));
 
 //getting routes
 
-// const postRoute = require("./routes/postRoutes");
+const postRoute = require("./routes/postRoutes");
 const getRoute = require("./routes/getRoutes");
-// app.use(postRoute);
+app.use(postRoute);
 app.use(getRoute);
 
 app.listen(8000, () => {

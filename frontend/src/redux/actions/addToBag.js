@@ -1,6 +1,6 @@
-export const AddToBag = (value) => {
+export const AddToBag = (data) => {
   return {
     type: "SHOWSMALLBAG",
-    payload: value,
+    payload: data,
   };
 };

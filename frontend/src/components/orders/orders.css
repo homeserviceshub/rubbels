@@ -1,0 +1,11 @@
+.orderContainer {
+  width: 100%;
+  background-color: rgb(249, 249, 249);
+  border-radius: 10px;
+  border: 1px solid #b6b6b6;
+}
+.orderBox {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}

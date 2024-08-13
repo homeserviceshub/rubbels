@@ -28,3 +28,11 @@ input[type="number"]::-webkit-outer-spin-button {
 .form-check-input:active {
   filter: brightness(100%);
 }
+.input-group .dropdown-menu .dropdown-item:active {
+  background-color: #f8f9fa !important;
+}
+.react-tel-input .form-control {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 100% !important;
+}

@@ -53,7 +53,7 @@
   padding: 15px 20px;
   position: sticky;
   top: 65px;
-  z-index: 2;
+  z-index: 1;
   background-color: white;
 }
 .heading {
@@ -142,8 +142,13 @@
   .simplebar-container {
     display: none;
   }
-  .mobileFilter {
-    display: block !important;
+  /* .mobileFilter {
+    top: 0% !important;
+    height: 100hv;
+    transition: all 0.5s ease-out;
+  } */
+  .mobileFilter.show {
+    height: 100vh;
   }
 }
 
@@ -151,6 +156,18 @@
   .card {
     width: 100%;
   }
+}
+.mobileFilter {
+  background-color: #fff;
+  height: 0vh;
+  left: 0;
+  position: absolute;
+  top: 0%;
+  width: 100vw;
+  z-index: 100;
+  overflow: auto;
+  display: block;
+  transition: height 0.5s ease-in-out;
 }
 
 /*  */
@@ -205,17 +222,6 @@
   gap: 7px;
 }
 
-.mobileFilter {
-  background-color: #fff;
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 1050;
-  overflow: auto;
-  display: none;
-}
 .filterNav {
   display: flex;
   margin: 1rem 1.25rem;

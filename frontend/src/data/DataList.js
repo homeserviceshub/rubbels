@@ -1,23 +1,18 @@
 export const menuItems = [
   {
     title: "Home",
-    url: "/services", // Add a leading slash ("/") to indicate the root-relative URL
+    url: "/", // Add a leading slash ("/") to indicate the root-relative URL
     cName: "nav-links",
   },
   {
     title: "New Drop",
-    url: "/",
+    url: "/tshirts",
     cName: "nav-links",
   },
   {
     title: "Shop",
-    url: "/ace",
+    url: "/tshirts",
     cName: "nav-links",
-    submenu: [
-      "Anime T-Shirts",
-      "Marvel T-Shirts",
-      "DC T-Shirts",
-      "Premium T-Shirts",
-    ],
+    submenu: ["Anime", "SikhPersonality"],
   },
 ];
